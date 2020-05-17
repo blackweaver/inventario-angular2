@@ -1,0 +1,66 @@
+<!-- Este template implementa boostrap -->
+<div class="container">
+
+		<h2>
+			{{ titulo }}
+		</h2>
+		<div class="panel-block"> 
+			<!-- Borro la validación por defecto y declaro la variable ngForm del formulario -->
+			<form novalidate #f="ngForm">
+				<div class="form-group">
+				<!-- Creo un campo oculto con el ID del artículo y lo asocio al ngModel -->
+				<input type="hidden" id="id" [(ngModel)]="inventario.id" name="id" #id="ngModel">
+				</div>
+				<div class="form-group">
+					<label for="producto">Porducto</label>
+					<!-- Cargo el input con el nombre del artículo y lo asigno requerido -->
+					<input type="text" class="form-control" id="producto" [(ngModel)]="inventario.producto" name="producto" #producto="ngModel" required>
+					<!-- Si el valor del campo producto tiene errores muestra el bloque de errores -->
+					<div *ngIf="producto.errors && producto.touched">
+						<!-- Si el campo está vacío informa que es requerido -->
+						<div *ngIf="producto.errors.required" class="alert alert-danger">
+							El campo es requerido
+						</div>
+						<!-- Si el campo excede el máximo de caracteres muestra este cartel -->
+						<div *ngIf="producto.errors.maxlength" class="alert alert-danger">
+							El nombre del producto sólo puede tener hasta 10 caracteres
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<!-- Idem al campo producto -->
+					<label for="existencia">Existencia</label>
+					<input type="text" class="form-control" id="existencia" [(ngModel)]="inventario.existencia" name="existencia" #existencia="ngModel" required>
+					<div *ngIf="existencia.errors && existencia.touched">
+						<div *ngIf="existencia.errors.required" class="alert alert-danger">
+							El campo es requerido
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<!-- Idem al campo producto -->
+					<label for="precio">Precio</label>
+					<input type="number" class="form-control" id="precio" [(ngModel)]="inventario.precio" name="precio" #precio="ngModel" required>
+					<div *ngIf="precio.errors && precio.touched">
+						<div *ngIf="precio.errors.required" class="alert alert-danger">
+							El campo es requerido
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<!-- Idem al campo producto -->
+					<label for="proveedor">Proveedor</label>
+					<input type="text" class="form-control" id="proveedor" [(ngModel)]="inventario.proveedor" name="proveedor" #proveedor="ngModel" required>
+					<div *ngIf="proveedor.errors && proveedor.touched">
+						<div *ngIf="proveedor.errors.required" class="alert alert-danger">
+							El campo es requerido
+						</div>
+					</div>
+				</div>
+				<!-- Botón que guarda el formulario llamando al método guardarInventario del componente. Se muestra activo si el formulario es válido -->
+				<button class="btn btn-primary" (click)="guardarInventario()" [disabled]="!f.valid">Guardar</button>
+				<!-- Botón que limpia los campos del formulario -->
+				<button class="btn btn-default" (click)="limpiarFromulario(f)">Limpiar</button>
+			</form>
+		</div>
+</div>

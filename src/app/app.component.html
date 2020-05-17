@@ -1,3 +1,48 @@
-<h1>
-  {{title}}
-</h1>
+<!-- Este template implementa boostrap -->
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <!-- Para que el responsive funcione, es necesario importar el JS de bootstrap -->
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Inventario</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="nav-item">
+        <!-- Los links del menú implementan los módulos Route y RouterModule  -->
+			<a href="#" class="nav-link" routerLink="/home" routerLinkActive="active">Home</a>
+		</li>
+		<li class="nav-item">
+			<a href="#" class="nav-link" routerLink="/inventario" routerLinkActive="active">Inventario</a>
+		</li>
+		<li class="nav-item">
+			<a href="#" class="nav-link" routerLink="/clientes" routerLinkActive="active">Clientes</a>
+		</li>
+		<li class="nav-item">
+			<a href="#" class="nav-link" routerLink="/contactos" routerLinkActive="active">Contactos</a>
+		</li>
+      </ul>
+      <div class="derecha">
+        <span style="margin-top: 5px; display: block">
+          {{ auth.userName }}
+          <!-- Si se da la condición de estar logueado, muestra el nombre de usuario y botón para desloguearse -->
+          <button *ngIf="!auth.isLoggedIn()" class="btn btn-outline-success" (click)="Login()">Login</button>
+          <button *ngIf="auth.isLoggedIn()" class="btn btn-outline-success" (click)="Logout()">Logout</button>
+        </span>
+      </div>
+     
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<router-outlet>
+<!-- Aquí se desplegarán los templates de las rutas solicitadas -->
+</router-outlet>
+

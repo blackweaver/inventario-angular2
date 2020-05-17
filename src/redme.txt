@@ -1,0 +1,77 @@
+﻿Pasos para crear el entorno de desarrollo Angular:
+
+Node.
+
+Visual Studio o (Sublime + TypeScript).
+
+Instalar cliente angular II: npm install -g angular-cli
+
+Crear proyecto: ng new “nombre” o npm install (de haber sido ya creado)
+
+Crear proyecto con sass: ng new “nombre” --style=sass
+
+Instalar bootstrap: npm install bootstrap@next --save
+
+Crear un componente (dentro de /app/): ng generate component
+
+Otra manera y con parámetros: ng g component clientes --inline-template --inline-style
+
+Otra: ng g component contactos --spec=false --prefix=false
+
+Crear un servicio: ng g service inventario.service --flat
+
+Crear una clase (parámetro para hacerlo dentro de la misma carpeta): ng g class inventario --flat 
+
+Para ejecutar el proyecto:
+    Servidor (REST API): node app.js
+    Abrir Wamp (o cualquier servidor)
+    Ejecutar proyecto (ng serve o ng start)
+
+Instalar librería (iconos): npm install font-awesome --save
+
+
+
+
+Pasos para crear el entorno de desarrollo de una REST API:
+
+Node.
+
+Visual Studio o (Sublime + TypeScript).
+
+Creo carpeta para el proyecto y accedo a ella.
+
+Una vez en la carpeta: npm init
+
+Instalar Express desde la consola (CMD): npm install express --save
+
+Creo archivo app.js que luego será ejecutado: node app.js
+
+Dependencias en caso de token:
+
+    npm install express-jwt --save
+    npm install jsonwebtoken --save
+    npm install cors --save
+
+Para ejecutar el proyecto:
+    Servidor (REST API): node app.js
+    Abrir Wamp (o cualquier otro servidor para base de datos)
+    Ejecutar proyecto (ng serve o ng start).
+
+
+
+Para MongoDB (Base de datos como un servicio).
+
+Descargar MongoDB: https://www.mongodb.com/download-center?ct=atlasheader#community
+Descargar Robomongo: https://robomongo.org/
+Chequear Node y MongoDB
+En la terminal: 
+Versión de Node: node -v
+Administrador de paquetes: npm -v
+Comprobar instalación: mongod
+Agregar nuevas variables de entorno: C:\Users\negro\AppData\Roaming\npm
+C:\mongodb\bin
+
+
+
+
+

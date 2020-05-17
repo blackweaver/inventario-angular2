@@ -1,0 +1,40 @@
+<!-- El template utiliza los estilos de bootstrap -->
+<div class="container">
+    <div class="card">
+        {{titulo}}
+    </div>
+    <div class="card-block">
+        <!-- novalidate desabilita la validación por defecto del navegador. form es el nombre de la variable del tipo formGroup -->
+        <form novalidate [formGroup]="form">
+            <div class="form-group">
+                <label for="user">Usuario:</label>
+                <!-- Referencio la variable del formGroup para usuario con formControlName -->
+                <input type="text" class="form-control" id="user" formControlName="user">
+                <!-- Si el campo no está debidamente completado, mostrará con el if un DIV con un texto de error -->
+                <div *ngIf="form.controls.user.errors && form.controls.user.touched">
+                    <div class="alert alert-danger" *ngIf="form.controls.requiered">
+                        El usuario es requerido.
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="pass">Usuario:</label>
+                <!-- Referencio la variable del formGroup para la contraseña con formControlName -->
+                <input type="text" class="form-control" id="pass" formControlName="pass">
+                <!-- Si el campo no está debidamente completado, mostrará con el if un DIV con un texto de error -->
+                <div *ngIf="form.controls.pass.errors && form.controls.pass.touched">
+                    <div class="alert alert-danger" *ngIf="form.controls.requiered">
+                        El password es requerido.
+                    </div>
+                </div>
+            </div>
+            <!-- Cualquier error que encuentre, dirá que tanto el usuario como la contraseña han presentado errores -->
+            <div class="alert alert-danger" *ngIf="error">
+                El nombre de usuario o la contraseña son incorrectos.
+            </div>
+            <!-- Al hacer click, ejecuta el método Login dentro del componente pasando como parámetro el valor del objeto formGroup -->
+            <button class="btn btn-primary" (click)="Login(form.value)">Login</button>
+
+        </form>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<!-- Este template implementa boostrap -->
+<div class="container">
+	<h2>Inventario</h2>
+<nav>
+	<!-- Botones para pasar del listado a crear nuevo artículo y visceversa -->
+	<!-- Especifico la ruta a donde dirigirá este botón, en este caso a la sección lista con todos los artículos -->
+	<!-- Declaro la animación del componente como su estado inicial, en este caso inactiva -->
+	<!-- Defino los eventos de ratón especificando que estado de la animación quiero para cada uno -->
+	<button class="btn btn-primary" routerLink="lista"
+		[@animacion]="estado1" 
+		(mouseenter)="estado1='active'" 
+		(mouseleave)="estado1='inactive'"
+	>Lista</button>
+	<button class="btn btn-primary" routerLink="detalle"
+		[@animacion]="estado2" 
+		(mouseenter)="estado2='active'" 
+		(mouseleave)="estado2='inactive'"
+	>Nuevo artículo</button>
+</nav>
+
+<router-outlet>
+<!-- En esta directiva, se desplegarán los templates de las subsecciones solicitadas -->
+</router-outlet>
+</div>

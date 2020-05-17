@@ -1,0 +1,36 @@
+<!-- Este template implementa boostrap -->
+<div class="container">
+	
+		
+			<h2>{{ titulo }}</h2>
+		
+			<table class="table table-striped">
+				
+					<tr>
+						<th>Id</th>
+						<th>Producto</th>
+						<th>Experiencia</th>
+						<th>Precio</th>
+						<th>Proveedor</th>
+						<th>Editar</th>
+					</tr>
+			
+				<!-- Itero como item, cada elemento de la lista (variable definida en el componente) -->
+					<tr *ngFor="let item of lista">
+						<td>{{ item.id }}</td>
+						<td>{{ item.producto }}</td>
+						<td>{{ item.existencia }}</td>
+						<td>{{ item.precio }}</td>
+						<td>{{ item.proveedor }}</td>
+						<td>
+							<!-- Evento click para ejecutar la edición del ítem, el cual paso como parámetro -->
+							<button class="btn btn-sm btn-primary" (click)="editar(item)"><i class="fa fa-pencil fa-fw"></i> Editar</button>
+							<!-- Evento click para borrar el ítem, el cual paso como parámetro -->
+							<button class="btn btn-sm btn-danger btn-primary" (click)="borrar(item)"><i class="fa fa-trash-o fa-fw"></i> Eliminar</button>
+					</td>
+					</tr>
+				
+			</table>
+	
+	
+</div>
